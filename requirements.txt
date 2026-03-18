@@ -1,0 +1,6 @@
+# Psi-Ramsey runtime requirements
+# The core experiment pipeline uses the Python standard library.
+# These packages are needed for figure generation and supplementary material generation.
+
+numpy>=1.24
+matplotlib>=3.7

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Figure 1 &mdash; &#936;-Ramsey Framework</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #ebe5d8;
+    font-family: Georgia, 'Times New Roman', serif;
+    padding: 32px 20px 48px;
+    display: flex;
+    justify-content: center;
+  }
+  .wrap { width: 100%; max-width: 1280px; }
+  .fig-header {
+    background: linear-gradient(to right, #fffefb, #faf7f0);
+    border: 1px solid rgba(40,75,99,0.14);
+    border-bottom: none;
+    border-radius: 18px 18px 0 0;
+    padding: 18px 30px 15px;
+  }
+  .kicker { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8a806e; margin-bottom: 4px; }
+  .fig-title { font-size: 23px; font-weight: 700; color: #1b2830; line-height: 1.2; text-align: center; }
+  .fig-body {
+    background: #fdfcf9;
+    border: 1px solid rgba(40,75,99,0.14);
+    border-radius: 0 0 18px 18px;
+    overflow: hidden;
+    box-shadow: 0 22px 56px rgba(29,42,51,0.11), 0 4px 14px rgba(29,42,51,0.06);
+  }
+  svg { display: block; width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="fig-header">
+    <h1 class="fig-title">&#936;-Ramsey Framework Overview</h1>
+  </div>
+  <div class="fig-body">
+  <svg viewBox="0 0 1210 806" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- Arrow markers -->
+      <marker id="ar"    markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto">
+        <path d="M0.5,1 L10,5.5 L0.5,10 z" fill="#284b63"/>
+      </marker>
+      <marker id="ar-r"  markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto">
+        <path d="M0.5,1 L10,5.5 L0.5,10 z" fill="#9f1239"/>
+      </marker>
+      <marker id="ar-g"  markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto">
+        <path d="M0.5,1 L10,5.5 L0.5,10 z" fill="#6b7280"/>
+      </marker>
+
+      <!-- Node fill gradients -->
+      <linearGradient id="gBlu" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#eaf3ff"/>
+        <stop offset="100%" stop-color="#cde3f8"/>
+      </linearGradient>
+      <linearGradient id="gAmb" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#fffdf2"/>
+        <stop offset="100%" stop-color="#fef2c0"/>
+      </linearGradient>
+      <linearGradient id="gPnk" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#fdf4f9"/>
+        <stop offset="100%" stop-color="#fce8f4"/>
+      </linearGradient>
+      <linearGradient id="gGrn" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#f0fdf7"/>
+        <stop offset="100%" stop-color="#d1fae5"/>
+      </linearGradient>
+      <linearGradient id="gGS"  x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#e6fdf2"/>
+        <stop offset="100%" stop-color="#a7f3d0"/>
+      </linearGradient>
+      <linearGradient id="gRed" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#fff8f8"/>
+        <stop offset="100%" stop-color="#fed7d7"/>
+      </linearGradient>
+
+      <!-- Drop-shadow filters -->
+      <filter id="sh"   x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="5" stdDeviation="9"  flood-color="#1c2832" flood-opacity="0.09"/>
+      </filter>
+      <filter id="shSm" x="-15%" y="-15%" width="130%" height="130%">
+        <feDropShadow dx="0" dy="3" stdDeviation="5"  flood-color="#1c2832" flood-opacity="0.07"/>
+      </filter>
+    </defs>
+
+    <!-- ── Canvas background ──────────────────────────────────── -->
+    <rect width="1210" height="806" fill="#fdfcf9"/>
+
+    <!-- ── Phase band fills ──────────────────────────────────── -->
+    <rect x="26"  y="52" width="238" height="628" rx="16" fill="#edf4ff" opacity="0.70"/>
+    <rect x="274" y="52" width="274" height="628" rx="16" fill="#fdf9ea" opacity="0.70"/>
+    <rect x="558" y="52" width="628" height="628" rx="16" fill="#edfaf4" opacity="0.62"/>
+
+    <!-- Phase dividers -->
+    <line x1="266" y1="56" x2="266" y2="674" stroke="#a8c8dc" stroke-width="1.2" stroke-dasharray="5 4"/>
+    <line x1="554" y1="56" x2="554" y2="674" stroke="#a8c8dc" stroke-width="1.2" stroke-dasharray="5 4"/>
+
+    <!-- ── Phase labels ──────────────────────────────────────── -->
+    <text x="145" y="78" text-anchor="middle" font-size="13" font-weight="700" font-family="Georgia,serif" fill="#1d4870" letter-spacing="0.06em">TEACHER PHASE</text>
+    <line x1="46"  y1="86" x2="244" y2="86" stroke="#3878b0" stroke-width="2.2" stroke-linecap="round"/>
+
+    <text x="411" y="78" text-anchor="middle" font-size="13" font-weight="700" font-family="Georgia,serif" fill="#795200" letter-spacing="0.06em">DISTILLATION PHASE</text>
+    <line x1="282" y1="86" x2="540" y2="86" stroke="#c09400" stroke-width="2.2" stroke-linecap="round"/>
+
+    <text x="872" y="78" text-anchor="middle" font-size="13" font-weight="700" font-family="Georgia,serif" fill="#0e5530" letter-spacing="0.06em">TRANSFER AND SEARCH PHASE</text>
+    <line x1="566" y1="86" x2="1178" y2="86" stroke="#22a862" stroke-width="2.2" stroke-linecap="round"/>
+
+    <!-- ════════════════════════════════════════════════════════
+         TEACHER PHASE NODES
+         ════════════════════════════════════════════════════════ -->
+
+    <!-- Teacher Witnesses -->
+    <rect x="38" y="108" width="214" height="106" rx="16" fill="url(#gBlu)" stroke="#3478aa" stroke-width="2.0" filter="url(#sh)"/>
+    <text x="145" y="139" text-anchor="middle" font-size="16" font-weight="700" font-family="Georgia,serif" fill="#1c2830">Teacher Witnesses</text>
+    <line x1="62" y1="149" x2="228" y2="149" stroke="#3478aa" stroke-width="0.8" opacity="0.40"/>
+    <text x="145" y="165" text-anchor="middle" font-size="12" font-family="Georgia,serif" fill="#2c4860">Certified adjacency matrices</text>
+    <text x="145" y="181" text-anchor="middle" font-size="12" font-family="Georgia,serif" fill="#2c4860">for nearby Ramsey cells</text>
+    <text x="145" y="200" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#2c4860" font-style="italic">A ∈ {0,1}ⁿˣⁿ, ω(G)&lt;r, α(G)&lt;s</text>
+
+    <!-- Teacher Traces -->
+    <rect x="38" y="274" width="214" height="106" rx="16" fill="url(#gBlu)" stroke="#3478aa" stroke-width="2.0" filter="url(#sh)"/>
+    <text x="145" y="305" text-anchor="middle" font-size="16" font-weight="700" font-family="Georgia,serif" fill="#1c2830">Teacher Traces</text>
+    <line x1="62" y1="315" x2="228" y2="315" stroke="#3478aa" stroke-width="0.8" opacity="0.40"/>
+    <text x="145" y="331" text-anchor="middle" font-size="12" font-family="Georgia,serif" fill="#2c4860">Accepted / rejected local moves</text>
+    <text x="145" y="347" text-anchor="middle" font-size="12" font-family="Georgia,serif" fill="#2c4860">and repair trajectories</text>
+    <text x="145" y="366" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#2c4860" font-style="italic">operator counts N<tspan baseline-shift="sub" font-size="9">acc</tspan>, N<tspan baseline-shift="sub" font-size="9">rej</tspan></text>
+
+    <!-- ════════════════════════════════════════════════════════
+         DISTILLATION PHASE NODES
+         ════════════════════════════════════════════════════════ -->
+
+    <!-- Teacher Representation -->
+    <rect x="282" y="158" width="248" height="148" rx="16" fill="url(#gAmb)" stroke="#b48c00" stroke-width="2.0" filter="url(#sh)"/>
+    <text x="406" y="190" text-anchor="middle" font-size="16" font-weight="700" font-family="Georgia,serif" fill="#1c2830">Teacher</text>
+    <text x="406" y="211" text-anchor="middle" font-size="16" font-weight="700" font-family="Georgia,serif" fill="#1c2830">Representation</text>
+    <line x1="308" y1="221" x2="504" y2="221" stroke="#b48c00" stroke-width="0.8" opacity="0.40"/>
+    <text x="406" y="239" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#5a4200">Shift-density profile p<tspan baseline-shift="sub" font-size="9">G</tspan>(δ),  contrastive c<tspan baseline-shift="sub" font-size="9">G</tspan>(b)</text>
+    <text x="406" y="257" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#5a4200">Pairwise compatibility q<tspan baseline-shift="sub" font-size="9">G</tspan>(b<tspan baseline-shift="sub" font-size="9">1</tspan>, b<tspan baseline-shift="sub" font-size="9">2</tspan>)</text>
+    <text x="406" y="275" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#5a4200">Global density ρ<tspan baseline-shift="sub" font-size="9">G</tspan>,  mean degree d<tspan baseline-shift="sub" font-size="9">G</tspan></text>
+    <text x="406" y="293" text-anchor="middle" font-size="11" font-family="Georgia,serif" fill="#5a4200" font-style="italic">normalized profile p̃<tspan baseline-shift="sub" font-size="8.5">G</tspan>(b)  via Eq. (4)</text>
+
+    <!-- Structure Oracle (dashed, analysis-only) -->
+    <rect x="282" y="486" width="248" height="100" rx="14" fill="#f5f6f8" stroke="#9ca3af" stroke-width="1.8" stroke-dasharray="8 6" filter="url(#shSm)"/>
+    <text x="406" y="519" text-anchor="middle" font-size="15" font-weight="700" font-family="Georgia,serif" fill="#374151">Structure Oracle</text>
+    <text x="406" y="536" text-anchor="middle" font-size="10.5" font-family="Georgia,serif" fill="#6b7280" font-style="italic">analysis-only baseline</text>
+    <line x1="308" y1="544" x2="504" y2="544" stroke="#9ca3af" stroke-width="0.8" opacity="0.40"/>
+    <text x="406" y="562" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#4b5563">S<tspan baseline-shift="sub" font-size="9">struct</tspan> = γ<tspan baseline-shift="sub" font-size="9">1</tspan>MotifOverlap − γ<tspan baseline-shift="sub" font-size="9">2</tspan>EdgeDisagreement</text>
+    <text x="406" y="578" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#4b5563">+ γ<tspan baseline-shift="sub" font-size="9">3</tspan>TopShiftJaccard(G)  [Eq. (23)]</text>
+
+    <!-- ════════════════════════════════════════════════════════
+         TRANSFER AND SEARCH PHASE NODES
+         ════════════════════════════════════════════════════════ -->
+
+    <!-- Student Distillation -->
+    <rect x="566" y="108" width="218" height="110" rx="16" fill="url(#gAmb)" stroke="#b48c00" stroke-width="2.0" filter="url(#sh)"/>
+    <text x="675" y="140" text-anchor="middle" font-size="16" font-weight="700" font-family="Georgia,serif" fill="#1c2830">Student</text>
+    <text x="675" y="161" text-anchor="middle" font-size="16" font-weight="700" font-family="Georgia,serif" fill="#1c2830">Distillation</text>
+    <line x1="592" y1="171" x2="758" y2="171" stroke="#b48c00" stroke-width="0.8" opacity="0.40"/>
+    <text x="675" y="189" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#5a4200">Support supp(b),  mean weight c̄(b)</text>
+    <text x="675" y="207" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#5a4200">Pairwise q̄(b<tspan baseline-shift="sub" font-size="9">1</tspan>,b<tspan baseline-shift="sub" font-size="9">2</tspan>),  operator bias β(a)</text>
+
+    <!-- Structure Extraction -->
+    <rect x="566" y="280" width="218" height="110" rx="16" fill="url(#gPnk)" stroke="#a03880" stroke-width="2.0" filter="url(#sh)"/>
+    <text x="675" y="312" text-anchor="middle" font-size="16" font-weight="700" font-family="Georgia,serif" fill="#1c2830">Structure</text>
+    <text x="675" y="333" text-anchor="middle" font-size="16" font-weight="700" font-family="Georgia,serif" fill="#1c2830">Extraction</text>
+    <line x1="592" y1="343" x2="758" y2="343" stroke="#a03880" stroke-width="0.8" opacity="0.40"/>
+    <text x="675" y="361" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#5a1250">Shared bins 𝒮,  ranked motifs I(b)</text>
+    <text x="675" y="379" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#5a1250">Pairwise set 𝒫,  density targets ρ̄, d̄</text>
+
+    <!-- Exact-Supervised R(3,s) Branch -->
+    <rect x="566" y="460" width="218" height="114" rx="16" fill="url(#gRed)" stroke="#9f1239" stroke-width="2.2" filter="url(#sh)"/>
+    <text x="675" y="492" text-anchor="middle" font-size="15.5" font-weight="700" font-family="Georgia,serif" fill="#1c2830">Exact-Supervised</text>
+    <text x="675" y="512" text-anchor="middle" font-size="15.5" font-weight="700" font-family="Georgia,serif" fill="#830020">R(3, s) Branch</text>
+    <line x1="592" y1="521" x2="758" y2="521" stroke="#9f1239" stroke-width="0.8" opacity="0.40"/>
+    <text x="675" y="539" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#7a0020">Triangle-aware adjacency search</text>
+    <text x="675" y="557" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#7a0020">exact Δ(G) for small-cell transfer</text>
+
+    <!-- Candidate Reconstruction -->
+    <rect x="820" y="108" width="256" height="106" rx="16" fill="url(#gGrn)" stroke="#158050" stroke-width="2.0" filter="url(#sh)"/>
+    <text x="948" y="140" text-anchor="middle" font-size="16" font-weight="700" font-family="Georgia,serif" fill="#1c2830">Candidate</text>
+    <text x="948" y="161" text-anchor="middle" font-size="16" font-weight="700" font-family="Georgia,serif" fill="#1c2830">Reconstruction</text>
+    <line x1="846" y1="171" x2="1050" y2="171" stroke="#158050" stroke-width="0.8" opacity="0.40"/>
+    <text x="948" y="189" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#0a4828">Shift-set, profile, partition-based</text>
+    <text x="948" y="207" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#0a4828">target graph proposals A<tspan baseline-shift="super" font-size="9">(𝒵)</tspan></text>
+
+    <!-- Balanced Refinement -->
+    <rect x="820" y="280" width="256" height="112" rx="16" fill="url(#gGrn)" stroke="#158050" stroke-width="2.0" filter="url(#sh)"/>
+    <text x="948" y="312" text-anchor="middle" font-size="16" font-weight="700" font-family="Georgia,serif" fill="#1c2830">Balanced</text>
+    <text x="948" y="333" text-anchor="middle" font-size="16" font-weight="700" font-family="Georgia,serif" fill="#1c2830">Refinement</text>
+    <line x1="846" y1="343" x2="1050" y2="343" stroke="#158050" stroke-width="0.8" opacity="0.40"/>
+    <text x="948" y="361" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#0a4828">ℒ(G): exact clique burden Δ<tspan baseline-shift="sub" font-size="9">r</tspan>(G),</text>
+    <text x="948" y="379" text-anchor="middle" font-size="11.5" font-family="Georgia,serif" fill="#0a4828">sampled validity,  density,  structure</text>
+
+    <!-- Portfolio Selection — final output node, double-border highlight -->
+    <rect x="818" y="462" width="260" height="110" rx="16" fill="url(#gGS)"  stroke="#0e6840" stroke-width="2.6" filter="url(#sh)"/>
+    <rect x="823" y="467" width="250" height="100" rx="13" fill="none" stroke="#2ab870" stroke-width="1.1" opacity="0.55"/>
+    <text x="948" y="496" text-anchor="middle" font-size="16" font-weight="700" font-family="Georgia,serif" fill="#1c2830">Portfolio</text>
+    <text x="948" y="517" text-anchor="middle" font-size="16" font-weight="700" font-family="Georgia,serif" fill="#1c2830">Selection</text>
+    <line x1="846" y1="527" x2="1050" y2="527" stroke="#0e6840" stroke-width="0.9" opacity="0.50"/>
+    <text x="948" y="546" text-anchor="middle" font-size="12" font-family="Georgia,serif" fill="#0a4828">G* = arg min ℒ(G)  [Eq. (21)]</text>
+    <text x="948" y="562" text-anchor="middle" font-size="11" font-family="Georgia,serif" fill="#0a4828" font-style="italic">over reconstructed candidates 𝒢<tspan baseline-shift="sub" font-size="8.5">cand</tspan></text>
+
+    <!-- ════════════════════════════════════════════════════════
+         ARROWS
+         ════════════════════════════════════════════════════════ -->
+
+    <!-- 1. Teacher Witnesses → Teacher Representation -->
+    <line x1="252" y1="161" x2="282" y2="210" stroke="#284b63" stroke-width="2.4" marker-end="url(#ar)"/>
+
+    <!-- 2. Teacher Traces → Teacher Representation -->
+    <line x1="252" y1="327" x2="282" y2="262" stroke="#284b63" stroke-width="2.4" marker-end="url(#ar)"/>
+
+    <!-- 3. Teacher Representation → Student Distillation -->
+    <line x1="530" y1="210" x2="566" y2="163" stroke="#284b63" stroke-width="2.4" marker-end="url(#ar)"/>
+
+    <!-- 4. Teacher Representation → Structure Extraction -->
+    <line x1="530" y1="262" x2="566" y2="335" stroke="#284b63" stroke-width="2.4" marker-end="url(#ar)"/>
+
+    <!-- 5. Student Distillation → Candidate Reconstruction -->
+    <path d="M784,163 L820,163" fill="none" stroke="#284b63" stroke-width="2.6" marker-end="url(#ar)"/>
+
+    <!-- 6. Structure Extraction → Balanced Refinement -->
+    <path d="M784,335 L820,335" fill="none" stroke="#284b63" stroke-width="2.6" marker-end="url(#ar)"/>
+
+    <!-- 7. Candidate Reconstruction → Balanced Refinement (vertical) -->
+    <line x1="948" y1="214" x2="948" y2="280" stroke="#284b63" stroke-width="2.6" marker-end="url(#ar)"/>
+
+    <!-- 8. Balanced Refinement → Portfolio Selection (vertical) -->
+    <line x1="948" y1="392" x2="948" y2="462" stroke="#284b63" stroke-width="2.6" marker-end="url(#ar)"/>
+
+    <!-- 9. Structure Extraction → Exact-Supervised (vertical, red) -->
+    <line x1="675" y1="390" x2="675" y2="460" stroke="#9f1239" stroke-width="2.6" marker-end="url(#ar-r)"/>
+
+    <!-- 10. Exact-Supervised → Portfolio Selection (red, horizontal) -->
+    <path d="M784,517 C802,517 802,517 818,517" fill="none" stroke="#9f1239" stroke-width="2.6" marker-end="url(#ar-r)"/>
+
+    <!-- 11. Structure Oracle → Portfolio Selection (dashed, deep arc under Exact-Supervised) -->
+    <path d="M530,575 C580,660 760,660 818,525" fill="none" stroke="#6b7280" stroke-width="2.1" stroke-dasharray="11 7" marker-end="url(#ar-g)"/>
+
+    <!-- 12. Portfolio Selection → Output bar -->
+    <line x1="948" y1="572" x2="948" y2="700" stroke="#158050" stroke-width="2.1" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+
+    <!-- ════════════════════════════════════════════════════════
+         OUTPUT BAR
+         ════════════════════════════════════════════════════════ -->
+    <rect x="36" y="700" width="1138" height="50" rx="13" fill="#edfaf5" stroke="#22a862" stroke-width="1.8"/>
+    <text x="605" y="730" text-anchor="middle" font-size="15.5" font-family="Georgia,serif" fill="#1c2830">
+      <tspan font-weight="700">Output: </tspan>Selected transferred Ramsey candidate with reusable structural priors
+    </text>
+
+    <!-- ════════════════════════════════════════════════════════
+         LEGEND REMOVED — see note: if figure feels too dense,
+         arrow colours are self-explanatory via colour coding
+         ════════════════════════════════════════════════════════ -->
+    <!-- Colour key line (centred) -->
+    <line  x1="320" y1="758" x2="348" y2="758" stroke="#284b63" stroke-width="2.4"/>
+    <text   x="354" y="762" font-size="11" font-family="Georgia,serif" fill="#374151">Main pipeline</text>
+    <line  x1="502" y1="758" x2="530" y2="758" stroke="#9f1239" stroke-width="2.4"/>
+    <text   x="536" y="762" font-size="11" font-family="Georgia,serif" fill="#374151">Exact-supervised path</text>
+    <line  x1="730" y1="758" x2="758" y2="758" stroke="#6b7280" stroke-width="2" stroke-dasharray="8 5"/>
+    <text   x="764" y="762" font-size="11" font-family="Georgia,serif" fill="#374151">Analysis-only baseline</text>
+
+  </svg>
+  </div>
+</div>
+</body>
+</html>
