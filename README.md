@@ -45,7 +45,7 @@ The supplementary package adds 11 reviewer-oriented robustness and stress-test b
 
 ---
 
-## Method at a Glance
+## ⚙️ Method at a Glance
 
 1. Build teacher representations from known Ramsey witnesses and teacher search traces.
 2. Distill a compact student summary of recurring structural patterns across related cells.
