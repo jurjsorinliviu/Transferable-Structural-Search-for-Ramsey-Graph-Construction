@@ -45,6 +45,17 @@ The supplementary package adds 11 reviewer-oriented robustness and stress-test b
 
 ---
 
+## Method at a Glance
+
+1. Build teacher representations from known Ramsey witnesses and teacher search traces.
+2. Distill a compact student summary of recurring structural patterns across related cells.
+3. Extract reusable structural priors such as ranked bins, pairwise motif relations, and global targets.
+4. Reconstruct candidate graphs for unseen target cells from multiple transfer families.
+5. Refine candidates with balanced local search and optional exact supervision for weak `R(3,s)` cells.
+6. Select the strongest candidate through a portfolio mechanism rather than a single fixed transfer rule.
+
+---
+
 ## 📊 Headline Results
 
 The main result files in [`results/psi_ramsey`](results/psi_ramsey) show:
