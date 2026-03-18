@@ -1,4 +1,4 @@
-# Ψ-Ramsey
+# Ψ-Ramsey: A Physics Structure-Informed Neural Networks-Inspired Framework for Transferable Structural Search in Ramsey Graph Construction
 
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![Results](https://img.shields.io/badge/results-main%20%2B%20supplementary-success.svg)](#headline-results)
