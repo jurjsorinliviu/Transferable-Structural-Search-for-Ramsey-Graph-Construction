@@ -9,7 +9,7 @@
 > This repository contains implementation code, experiment outputs, paper figures, and manuscript artifacts accompanying the Ψ-Ramsey study.  
 > The manuscript and supplementary document are the authoritative sources for formal claims, definitions, and evaluation details.
 
-![Ψ-Ramsey Framework](%CE%A8-Ramsey-Framework.png)
+<img width="1855" height="1291" alt="Proposed_Framework" src="https://github.com/user-attachments/assets/86c04825-9ad2-47f8-b878-55dc7afaea09" />
 
 Ψ-Ramsey is a proof-of-concept framework for **transferable structural search in Ramsey graph construction**. It adapts a teacher-student structure-distillation pattern inspired by [Ψ-NN](https://www.nature.com/articles/s41467-025-64624-3) and applies it to Ramsey witnesses, structural motif extraction, candidate reconstruction, local refinement, and portfolio-based selection across related Ramsey cells.
 
