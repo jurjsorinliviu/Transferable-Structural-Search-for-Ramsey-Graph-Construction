@@ -277,7 +277,7 @@ def create_figure_s2(search_summary: dict) -> dict:
         "random_local_search",
         "psi_ramsey_guided_search",
     ]
-    labels = ["Portfolio Guided", "Structured Seed", "Random Local", "PSI Guided"]
+    labels = ["Portfolio Guided", "Structured Seed", "Random Local", "Proposed Framework Guided"]
     data = [metric_series_from_replicates(search_summary, method, "overall_mean_rank", "ranking") for method in methods]
 
     fig, ax = plt.subplots(figsize=(8.4, 5.2))
