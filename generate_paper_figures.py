@@ -5,6 +5,7 @@ import re
 from pathlib import Path
 
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 import numpy as np
 
 
@@ -34,6 +35,17 @@ def pretty_target_label(raw: str) -> str:
     return match.group(0).replace(", ", ",") if match else raw
 
 
+def thousands_formatter(x, _pos) -> str:
+    """Format tick labels with comma thousands separator for numbers with 5+ digits."""
+    val = int(round(x))
+    if abs(val) >= 10000:
+        return f"{val:,}"
+    return str(val)
+
+
+THOUSANDS_FMT = ticker.FuncFormatter(thousands_formatter)
+
+
 def annotate_points(ax: plt.Axes, xs, ys, labels, offsets=None) -> None:
     if offsets is None:
         offsets = [(6, 6)] * len(labels)
@@ -51,6 +63,8 @@ def generate_figure_1(transfer_agg: dict) -> dict:
     methods = [
         "portfolio_transfer",
         "structure_oracle_transfer",
+        "hierarchical_coarsening_transfer",
+        "flag_density_transfer",
         "random_circulant",
         "random_density",
         "exact_triangle_transfer",
@@ -58,6 +72,8 @@ def generate_figure_1(transfer_agg: dict) -> dict:
     labels = [
         "Portfolio",
         "Structure Oracle",
+        "Hier. Coarsening",
+        "Flag Density",
         "Random Circulant",
         "Random Density",
         "Exact Triangle",
@@ -73,13 +89,27 @@ def generate_figure_1(transfer_agg: dict) -> dict:
             + 0.5 * stats["mean_top_shift_jaccard"]
         )
 
-    fig, ax = plt.subplots(figsize=(8.2, 5.4))
-    colors = ["#1b5e20", "#b71c1c", "#1565c0", "#6a1b9a", "#ef6c00"]
-    ax.scatter(xs, ys, s=95, c=colors, edgecolors="black", linewidths=0.7)
-    annotate_points(ax, xs, ys, labels)
-    ax.set_xlabel("Mean exact r-clique count")
-    ax.set_ylabel("Structural agreement score")
-    ax.set_title("Structure-Validity Frontier")
+    fig, ax = plt.subplots(figsize=(10.5, 5.8))
+    colors = ["#1b5e20", "#b71c1c", "#00838f", "#f57f17", "#1565c0", "#6a1b9a", "#ef6c00"]
+    markers = ["o", "o", "^", "^", "o", "o", "o"]
+    handles = []
+    for x, y, color, marker, label in zip(xs, ys, colors, markers, labels):
+        sc = ax.scatter(x, y, s=130, c=color, edgecolors="black", linewidths=0.7, marker=marker, label=label, zorder=3)
+        handles.append(sc)
+    ax.legend(
+        handles=handles,
+        labels=labels,
+        loc="upper right",
+        frameon=True,
+        framealpha=0.9,
+        fontsize=9,
+        ncol=1,
+        borderpad=0.8,
+    )
+    ax.set_xlabel("Mean exact r-clique count", fontsize=11)
+    ax.set_ylabel("Structural agreement score", fontsize=11)
+    ax.set_title("Structure-Validity Frontier", fontsize=12)
+    ax.xaxis.set_major_formatter(THOUSANDS_FMT)
     style_axes(ax)
     fig.tight_layout()
 
@@ -95,9 +125,11 @@ def generate_figure_1(transfer_agg: dict) -> dict:
             "Tradeoff between structural agreement and Ramsey-valid transfer. "
             "The horizontal axis represents mean exact r-clique count, where lower is better. "
             "The vertical axis represents structural agreement, measured as the average of motif "
-            "overlap and top-shift Jaccard similarity. The figure shows that structure_oracle_transfer "
-            "lies on the structure-dominant frontier, whereas portfolio_transfer attains the strongest "
-            "balance between structural agreement and Ramsey-valid construction."
+            "overlap and top-shift Jaccard similarity. Triangular markers denote the two new methods "
+            "introduced in the revision (Hierarchical Coarsening Transfer and Flag Algebra Density Transfer). "
+            "The figure shows that structure_oracle_transfer lies on the structure-dominant frontier, "
+            "whereas portfolio_transfer attains the strongest balance between structural agreement and "
+            "Ramsey-valid construction. The new methods occupy distinct positions in the frontier space."
         ),
     }
 
@@ -166,12 +198,16 @@ def generate_figure_3(transfer_report: dict) -> dict:
     targets = [pretty_target_label(row["target"]) for row in transfer_report["results"]]
     methods = [
         "portfolio_transfer",
+        "hierarchical_coarsening_transfer",
+        "flag_density_transfer",
         "structure_oracle_transfer",
         "random_circulant",
         "exact_triangle_transfer",
     ]
     labels = [
         "Portfolio",
+        "Hier. Coarsening",
+        "Flag Density",
         "Structure Oracle",
         "Random Circulant",
         "Exact Triangle",
@@ -183,13 +219,14 @@ def generate_figure_3(transfer_report: dict) -> dict:
         for method in methods:
             values[method].append(bmap[method]["exact_r_clique_count"])
 
-    fig, ax = plt.subplots(figsize=(9.5, 5.6))
+    fig, ax = plt.subplots(figsize=(11.0, 5.6))
     x = np.arange(len(targets))
-    width = 0.18
-    colors = ["#1b5e20", "#b71c1c", "#1565c0", "#ef6c00"]
+    n_methods = len(methods)
+    width = 0.13
+    colors = ["#1b5e20", "#00838f", "#f57f17", "#b71c1c", "#1565c0", "#ef6c00"]
 
     for idx, method in enumerate(methods):
-        offset = (idx - 1.5) * width
+        offset = (idx - (n_methods - 1) / 2.0) * width
         ax.bar(
             x + offset,
             values[method],
@@ -205,8 +242,9 @@ def generate_figure_3(transfer_report: dict) -> dict:
     ax.set_ylabel("Exact r-clique count")
     ax.set_xlabel("Target Ramsey cell")
     ax.set_title("Per-Target Exact Clique Counts for Transfer Methods")
+    ax.yaxis.set_major_formatter(THOUSANDS_FMT)
     style_axes(ax)
-    ax.legend(frameon=False, ncol=2)
+    ax.legend(frameon=False, ncol=3)
     fig.tight_layout()
 
     path = FIGURES_DIR / "figure_3_per_target_transfer_counts.png"
@@ -218,9 +256,12 @@ def generate_figure_3(transfer_report: dict) -> dict:
         "title": "Per-Target Exact Clique Counts for Transfer Methods",
         "path": str(path),
         "caption": (
-            "Per-target comparison of exact r-clique counts across the main transfer baselines. "
-            "Lower values are better. The figure highlights the consistency of portfolio_transfer "
-            "across the target set and shows where structure-dominant and simpler baselines succeed or fail."
+            "Per-target comparison of exact r-clique counts across the main transfer baselines, "
+            "including the two new methods introduced in the revision. "
+            "Lower values are better. The figure shows that Hierarchical Coarsening Transfer "
+            "achieves very low clique counts on the R(3,s) cells, while Flag Algebra Density Transfer "
+            "is competitive on R(3,s) but produces higher counts on the R(4,s) cells. "
+            "Portfolio transfer remains the most balanced method across the full target set."
         ),
     }
 
