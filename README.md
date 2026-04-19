@@ -399,7 +399,7 @@ This repository builds on those prior resources for methodological inspiration a
 
 ## 📚 How to Cite
 
-If you use this repository, code structure, or generated experimental outputs, please cite the current pre-publication repository version:
+If you use this repository, code structure, or generated experimental outputs, please use the following citation:
 
 ```bibtex
 @Article{math14081367,
