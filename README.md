@@ -5,7 +5,7 @@
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jurjsorinliviu/Transferable-Structural-Search-for-Ramsey-Graph-Construction)
 
 This repository contains implementation code, experiment outputs, paper figures, and manuscript artifacts accompanying the study of transferable structural search in Ramsey graph construction.  
-The published [manuscript]([url](https://www.mdpi.com/2227-7390/14/8/1367)) and [supplementary document]([url](https://zenodo.org/records/19481171)) are the authoritative sources for formal claims, definitions, and evaluation details.
+The published [manuscript](https://www.mdpi.com/2227-7390/14/8/1367) and [supplementary document](https://zenodo.org/records/19481171) are the authoritative sources for formal claims, definitions, and evaluation details.
 
 <img width="1855" height="1291" alt="Proposed_Framework" src="https://github.com/user-attachments/assets/86c04825-9ad2-47f8-b878-55dc7afaea09" />
 
