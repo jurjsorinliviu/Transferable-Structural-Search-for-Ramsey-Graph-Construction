@@ -7,7 +7,7 @@
 > **Scope notice**
 >
 > This repository contains implementation code, experiment outputs, paper figures, and manuscript artifacts accompanying the study of transferable structural search in Ramsey graph construction.  
-> The manuscript and supplementary document are the authoritative sources for formal claims, definitions, and evaluation details.
+> The published [manuscript]([url](https://www.mdpi.com/2227-7390/14/8/1367)) and [supplementary document]([url](https://zenodo.org/records/19481171)) are the authoritative sources for formal claims, definitions, and evaluation details.
 
 <img width="1855" height="1291" alt="Proposed_Framework" src="https://github.com/user-attachments/assets/86c04825-9ad2-47f8-b878-55dc7afaea09" />
 
@@ -402,12 +402,18 @@ This repository builds on those prior resources for methodological inspiration a
 If you use this repository, code structure, or generated experimental outputs, please cite the current pre-publication repository version:
 
 ```bibtex
-@misc{jurj_transferable_structural_search_ramsey_2026,
-  author       = {Sorin Liviu Jurj},
-  title        = {From Cell-Specific Heuristics to Transferable Structural Search for Ramsey Graph Construction},
-  year         = {2026},
-  howpublished = {\url{https://github.com/jurjsorinliviu/Transferable-Structural-Search-for-Ramsey-Graph-Construction}},
-  note         = {GitHub repository, pre-publication research prototype}
+@Article{math14081367,
+AUTHOR = {Jurj, Sorin Liviu},
+TITLE = {From Cell-Specific Heuristics to Transferable Structural Search for Ramsey Graph Construction},
+JOURNAL = {Mathematics},
+VOLUME = {14},
+YEAR = {2026},
+NUMBER = {8},
+ARTICLE-NUMBER = {1367},
+URL = {https://www.mdpi.com/2227-7390/14/8/1367},
+ISSN = {2227-7390},
+ABSTRACT = {Recent automated search methods have improved lower bounds for several Ramsey numbers, but the strongest gains often depend on structured seeding and cell-specific heuristic discovery. This leaves open a more fundamental question: Can a useful search structure be transferred across related Ramsey cells rather than rediscovered independently for each target instance? This work proposes a teacher–student framework for transferable structural search in Ramsey graph construction, inspired by the structure-distillation logic of Physics Structure-Informed Neural Networks (Ψ-NNs). The framework builds compressed structural representations from teacher witnesses and search traces, extracts reusable motifs and relations, and reconstructs transfer candidates. These are refined by balanced search and, for weak R(3, s) cells, by exact small-cell supervision. The framework is evaluated as a proof of concept across five Ramsey cells under transfer, matched-compute, search, ablation, and interpretability settings, including a proportional shift-scaling baseline and a greedy triangle-closing baseline that probe the structure-validity frontier from complementary directions. Supplementary experiments cover seed robustness, budget sensitivity, transfer-neighborhood variation, structural-resolution changes, stronger exact supervision, cross-r teacher pooling, single-teacher configurations, and scaling behavior across graph sizes. The results show that the portfolio version of the framework is the strongest balanced transfer method in the current study, while a structure-dominant oracle achieves stronger witness-shape agreement but worse Ramsey-valid construction. These findings reveal a clear structure-validity frontier and suggest that transferable Ramsey search should be evaluated by how well structural priors survive the validity constraints of new cells.},
+DOI = {10.3390/math14081367}
 }
 ```
 
