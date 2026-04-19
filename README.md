@@ -416,9 +416,6 @@ ABSTRACT = {Recent automated search methods have improved lower bounds for sever
 DOI = {10.3390/math14081367}
 }
 ```
-
-The citation will be updated once the manuscript is formally published.
-
 ---
 
 ## 📝 Notes
